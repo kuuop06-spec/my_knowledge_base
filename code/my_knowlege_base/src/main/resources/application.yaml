@@ -10,3 +10,10 @@ spring:
     web:
         resources:
             static-locations: classpath:/static/,file:./uploads/
+
+sa-token:
+    # token 有效期，单位秒 (此处配置 7天)
+    timeout: 604800
+    # 恢复成默认的 uuid 风格（短小精悍）
+    token-style: uuid
+    is-log: true
