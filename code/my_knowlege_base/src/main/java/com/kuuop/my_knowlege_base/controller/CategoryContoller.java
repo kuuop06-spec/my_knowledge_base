@@ -51,7 +51,7 @@ public class CategoryContoller {
     // 后台：获取单个分类
     @GetMapping("/admin/categories/{id}")
     public Result<Category> getCategoryById(@PathVariable Long id) {
-        Category category = categoryService.getById(id);
+        Category category = categoryService.getCategoryById(id);
         return category != null ? Result.success(category) : Result.error("分类不存在");
     }
 }

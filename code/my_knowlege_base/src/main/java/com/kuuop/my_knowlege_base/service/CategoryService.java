@@ -40,7 +40,7 @@ public class CategoryService extends ServiceImpl<CategoryMapper, Category> {
     }
 
     // 获取单个分类
-    public Category getById(Long id) {
+    public Category getCategoryById(Long id) {
         return this.getById(id);
     }
 }

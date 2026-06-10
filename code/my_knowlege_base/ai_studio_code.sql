@@ -24,8 +24,9 @@ CREATE TABLE `kb_category` (
   `description` VARCHAR(255) COMMENT '分类描述(后台用)',
   `sort_order` INT DEFAULT 0 COMMENT '排序(数字越小越靠前)',
   `is_visible` TINYINT(1) DEFAULT 1 COMMENT '是否在前台显示: 1显示 0隐藏',
+  `parent_id` BIGINT COMMENT '父分类ID(NULL表示一级分类)',
   `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='知识库分类表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='知识库分类表(支持多级)';
 
 -- ----------------------------
 -- 3. 标签表 (kb_tag) - 对应前台【右侧栏】

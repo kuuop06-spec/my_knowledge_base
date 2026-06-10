@@ -8,7 +8,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@TableName("kb_category")//为啥用的是泛型
+@TableName("kb_category")
 public class Category {
     @TableId(type = IdType.AUTO)
     private Long id;
@@ -22,5 +22,7 @@ public class Category {
     private Short isVisible;
 
     private LocalDateTime createTime;
+
+    private Long parentId;
 
 }
