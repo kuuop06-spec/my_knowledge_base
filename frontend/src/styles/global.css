@@ -1,0 +1,283 @@
+/* ===== 设计令牌：温暖纸感浅色阅读风 ===== */
+:root {
+  --base: #f4f1ea;          /* 纸感米白背景 */
+  --surface: #ffffff;       /* 卡片/面板 */
+  --surface-2: #faf8f3;     /* 次级面板 */
+  --foreground: #1f1d1a;    /* 主文字 墨色 */
+  --muted: #6f6a61;         /* 次级文字 */
+  --border: #e4ded2;        /* 边框 */
+  --accent: #2f6f5e;        /* 墨绿强调色 */
+  --accent-hover: #285f50;
+  --accent-soft: #e6efeb;   /* 强调色浅底 */
+  --danger: #b4452f;        /* 警示/删除 */
+  --radius: 10px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-serif: "Georgia", "Songti SC", "STSong", serif;
+  --shadow-sm: 0 1px 2px rgba(31, 29, 26, 0.06);
+  --shadow-md: 0 4px 16px rgba(31, 29, 26, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: var(--base);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ===== 通用工具类 ===== */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  background-color: var(--surface-2);
+}
+
+.btn-danger {
+  background-color: transparent;
+  color: var(--danger);
+  border: 1px solid var(--border);
+}
+.btn-danger:hover {
+  background-color: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  color: var(--foreground);
+  transition: border-color 0.18s ease;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid transparent;
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+/* ===== 全局加载/空状态 ===== */
+.state-box {
+  text-align: center;
+  padding: 64px 20px;
+  color: var(--muted);
+}
+
+/* ===== 简单淡入 ===== */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* ===== Markdown 渲染通用样式 ===== */
+.markdown-body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--foreground);
+  word-wrap: break-word;
+}
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.6em 0 0.6em;
+}
+.markdown-body h1 {
+  font-size: 26px;
+}
+.markdown-body h2 {
+  font-size: 22px;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+.markdown-body h3 {
+  font-size: 18px;
+}
+.markdown-body p {
+  margin: 0.9em 0;
+}
+.markdown-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.4em;
+  margin: 0.9em 0;
+}
+.markdown-body li {
+  margin: 0.35em 0;
+}
+.markdown-body blockquote {
+  margin: 1.1em 0;
+  padding: 4px 16px;
+  border-left: 3px solid var(--accent);
+  background-color: var(--surface-2);
+  color: var(--muted);
+  border-radius: 0 6px 6px 0;
+}
+.markdown-body code {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.88em;
+  background-color: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+.markdown-body pre {
+  background-color: #1f1d1a;
+  color: #f4f1ea;
+  padding: 16px;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1.1em 0;
+}
+.markdown-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: 14px;
+}
+.markdown-body img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin: 0.9em 0;
+}
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1em 0;
+  font-size: 15px;
+}
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+}
+.markdown-body th {
+  background-color: var(--surface-2);
+}
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.8em 0;
+}
