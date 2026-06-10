@@ -3,15 +3,16 @@ import { RouterView, RouterLink, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { toast } from '@/utils/toast'
 import ToastHost from '@/components/ToastHost.vue'
+import IconBase from '@/components/IconBase.vue'
 
 const auth = useAuthStore()
 const router = useRouter()
 
 const navItems = [
-  { name: 'admin-articles', label: '文章管理', icon: '✎' },
-  { name: 'admin-categories', label: '分类管理', icon: '◧' },
-  { name: 'admin-tags', label: '标签管理', icon: '#' },
-  { name: 'admin-files', label: '文件管理', icon: '⛁' },
+  { name: 'admin-articles', label: '文章管理', icon: 'article' },
+  { name: 'admin-categories', label: '分类管理', icon: 'category' },
+  { name: 'admin-tags', label: '标签管理', icon: 'tag' },
+  { name: 'admin-files', label: '文件管理', icon: 'file' },
 ]
 
 function handleLogout() {
@@ -36,7 +37,7 @@ function handleLogout() {
           class="side-item"
           active-class="active"
         >
-          <span class="side-icon">{{ item.icon }}</span>
+          <span class="side-icon"><IconBase :name="item.icon" :size="18" /></span>
           {{ item.label }}
         </RouterLink>
       </nav>
@@ -130,9 +131,10 @@ function handleLogout() {
   font-weight: 500;
 }
 .side-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 18px;
-  text-align: center;
-  font-size: 15px;
 }
 .sidebar-foot {
   padding: 12px;
